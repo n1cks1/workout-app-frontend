@@ -7,7 +7,6 @@ const Router = () => {
 	const { isAuth } = useAuth()
 
 	return (
-		// TODO: доделать авторизацию
 		<BrowserRouter>
 			<Routes>
 				{routes.map(route => (

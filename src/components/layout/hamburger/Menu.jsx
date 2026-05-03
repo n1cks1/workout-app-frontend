@@ -14,7 +14,7 @@ const Menu = ({ isShow }) => {
 						</li>
 					))}
 					<li>
-						<Link>Logout</Link>
+						<button>Logout</button>
 					</li>
 				</ul>
 			</nav>

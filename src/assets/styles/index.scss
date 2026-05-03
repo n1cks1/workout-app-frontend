@@ -76,7 +76,7 @@ img {
 	transition: color 0.3s ease;
 
 	&:hover {
-		color: darken($accent, 10%);
+		color: darkest($accent, 10%);
 	}
 }
 

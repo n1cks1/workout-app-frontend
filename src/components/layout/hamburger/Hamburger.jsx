@@ -18,9 +18,9 @@ const Hamburger = () => {
 				}}
 			>
 				{isShow ? (
-					<MdClose color="white" />
+					<MdClose className={styles.menuButtonIcon} />
 				) : (
-					<HiOutlineMenuAlt3 color="white" />
+					<HiOutlineMenuAlt3 className={styles.menuButtonIcon} />
 				)}
 			</button>
 			<Menu isShow={isShow} />
