@@ -1,8 +1,11 @@
+import { useAuth } from '@hooks/useAuth'
 import NotFound from '@pages/NotFound/NotFound'
 import { routes } from '@routes/routes.data'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 
 const Router = () => {
+	const { isAuth } = useAuth()
+
 	return (
 		// TODO: доделать авторизацию
 		<BrowserRouter>
@@ -10,8 +13,17 @@ const Router = () => {
 				{routes.map(route => (
 					<Route
 						key={route.path}
-						element={<route.component />}
 						path={route.path}
+						element={
+							route.auth && !isAuth ? (
+								<Navigate
+									to="/auth"
+									replace
+								/>
+							) : (
+								<route.component />
+							)
+						}
 					/>
 				))}
 
