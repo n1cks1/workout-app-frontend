@@ -1,0 +1,17 @@
+.wrapper {
+	display: flex;
+
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.counter {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.label {
+	opacity: 0.5;
+}
