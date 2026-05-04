@@ -1,4 +1,5 @@
 import styles from '@components/layout/header/Header.module.scss'
+import { useAuth } from '@hooks/useAuth'
 import { FaArrowLeft, FaUser } from 'react-icons/fa6'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Hamburger from '../hamburger/Hamburger'
@@ -6,6 +7,7 @@ import Hamburger from '../hamburger/Hamburger'
 const Header = ({ backLink = '' }) => {
 	const { pathname } = useLocation()
 	const navigate = useNavigate()
+	const { isAuth } = useAuth()
 
 	return (
 		<header className={styles.header}>
@@ -23,7 +25,7 @@ const Header = ({ backLink = '' }) => {
 			) : (
 				<button
 					onClick={() => {
-						navigate('/profile')
+						navigate(isAuth ? '/profile' : '/auth')
 					}}
 				>
 					<FaUser

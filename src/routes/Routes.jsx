@@ -1,5 +1,5 @@
 import { useAuth } from '@hooks/useAuth'
-import NotFound from '@pages/NotFound/NotFound'
+import NotFound from '@pages/not-found/NotFound'
 import { routes } from '@routes/routes.data'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 

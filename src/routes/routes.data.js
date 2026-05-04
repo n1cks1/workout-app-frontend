@@ -1,4 +1,4 @@
-import Auth from '@pages/Auth/Auth'
+import Auth from '@pages/auth/Auth'
 import Home from '@pages/home/Home'
 import Profile from '@pages/profile/Profile'
 import NewWorkout from '@pages/workouts/NewWorkout'
