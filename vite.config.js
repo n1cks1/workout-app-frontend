@@ -17,7 +17,8 @@ export default defineConfig({
 			'@components': fromSrc('components'),
 			'@hooks': fromSrc('hooks'),
 			'@pages': fromSrc('pages'),
-			'@routes': fromSrc('routes')
+			'@routes': fromSrc('routes'),
+			'@ui': fromSrc('ui')
 		}
 	},
 	css: {
