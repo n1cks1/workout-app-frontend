@@ -30,6 +30,18 @@ export default defineConfig({
 			}
 		}
 	}
+
+	//for testing on mobile with hotspot, change api.js -> url_api = '/api'
+
+	// server: {
+	// 	host: '0.0.0.0',
+	// 	proxy: {
+	// 		'/api': {
+	// 			target: 'http://172.20.10.9:3000/',
+	// 			changeOrigin: true
+	// 		}
+	// 	}
+	// }
 })
 
 // CSS без импортов + пример настройки алиасов

@@ -1,0 +1,15 @@
+.wrapper {
+	display: flex;
+	justify-content: center;
+	gap: 0 calc(10%);
+}
+
+.imgCard {
+	display: flex;
+	flex-direction: column;
+	gap: 10px 0;
+}
+
+.img {
+	border-radius: 15px;
+}
