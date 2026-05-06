@@ -1,9 +1,13 @@
 import styles from '@components/layout/hamburger/Hamburger.module.scss'
 import { menu } from '@components/layout/hamburger/menu.data'
+import { useAuth } from '@hooks/useAuth'
 import cn from 'clsx'
+import Cookies from 'js-cookie'
 import { Link } from 'react-router-dom'
 
 const Menu = ({ isShow }) => {
+	const { setIsAuth } = useAuth()
+
 	return (
 		isShow && (
 			<nav className={cn(styles.menu, { [styles.show]: isShow })}>
@@ -14,7 +18,14 @@ const Menu = ({ isShow }) => {
 						</li>
 					))}
 					<li>
-						<button>Logout</button>
+						<button
+							onClick={() => {
+								Cookies.remove('notif')
+								setIsAuth(false)
+							}}
+						>
+							Logout
+						</button>
 					</li>
 				</ul>
 			</nav>

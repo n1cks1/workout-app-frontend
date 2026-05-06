@@ -1,52 +1,50 @@
-import Auth from '@pages/auth/Auth'
-import Home from '@pages/home/Home'
-import Profile from '@pages/profile/Profile'
-import NewWorkout from '@pages/workouts/NewWorkout'
+import Home from '@components/pages/home/Home'
+import Profile from '@components/pages/profile/Profile'
+import NewWorkout from '@components/pages/workouts/NewWorkout'
 
-export const routes = [
+export const publicRoutes = [
 	{
 		path: '/',
-		component: Home,
-		auth: false
-	},
+		component: Home
+	}
+]
+
+export const privateRoutes = [
 	{
-		path: '/auth',
-		component: Auth,
-		auth: false
+		path: '/',
+		component: Home
 	},
 	{
 		path: '/new-workout',
-		component: NewWorkout,
-		auth: true
+		component: NewWorkout
 	},
 	{
 		path: '/profile',
-		component: Profile,
-		auth: true
+		component: Profile
 	} /* 
 	{
 		path: '/new-exercise',
 
 		component: NewExercise,
-		auth: true,
+
 	},
 
 	{
 		path: '/workout/:id',
 
 		component: SingleWorkout,
-		auth: true,
+
 	},
 	{
 		path: '/workouts',
 
 		component: ListWorkouts,
-		auth: true,
+
 	},
 	{
 		path: '/exercise/:id',
 
 		component: SingleExercise,
-		auth: true,
+
 	}, */
 ]

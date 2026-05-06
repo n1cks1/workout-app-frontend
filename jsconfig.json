@@ -6,9 +6,8 @@
 			"@components/*": ["src/components/*"],
 			"@styles/*": ["src/assets/styles/*"],
 			"@hooks/*": ["src/hooks/*"],
-			"@pages/*": ["src/pages/*"],
 			"@routes/*": ["src/routes/*"],
-			"@ui/*": ["src/ui/*"]
+			"@services/*": ["src/services/*"]
 		}
 	},
 	"include": ["src"],

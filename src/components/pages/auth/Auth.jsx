@@ -1,25 +1,28 @@
 import Layout from '@components/layout/Layout'
-import Button from '@ui/button/Button'
-import Field from '@ui/field/Field'
-import Loader from '@ui/Loader'
+import Button from '@components/ui/button/Button'
+import Field from '@components/ui/field/Field'
+import Loader from '@components/ui/Loader'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import styles from './Auth.module.scss'
+import { useAuthMutation } from './useAuthMutation'
 
 const Auth = () => {
-	const [type, setType] = useState('auth')
+	const [type, setType] = useState('login')
 
 	const {
 		register,
 		handleSubmit,
-		formState: { errors }
+		formState: { errors },
+		reset
 	} = useForm({
 		mode: 'onChange'
 	})
 
+	const { mutate, isPending } = useAuthMutation(type, reset)
+
 	const onSubmit = data => {
-		//type
-		console.log(data)
+		mutate(data)
 	}
 	return (
 		<>
@@ -28,7 +31,7 @@ const Auth = () => {
 				bgImage="/images/auth-bg.png"
 			/>
 			<div className="wrapper-inner-page">
-				{true && <Loader />}
+				{isPending && <Loader />}
 				<form onSubmit={handleSubmit(onSubmit)}>
 					<Field
 						type="email"
@@ -48,7 +51,13 @@ const Auth = () => {
 						error={errors?.password?.message}
 					/>
 					<div className={styles.wrapperButtons}>
-						<Button clickHandler={() => setType('auth')}>Log In</Button>
+						<Button
+							clickHandler={() => {
+								setType('login')
+							}}
+						>
+							Log In
+						</Button>
 						<Button clickHandler={() => setType('register')}>Sign Up</Button>
 					</div>
 				</form>
