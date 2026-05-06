@@ -2,14 +2,7 @@ import Home from '@components/pages/home/Home'
 import Profile from '@components/pages/profile/Profile'
 import NewWorkout from '@components/pages/workouts/NewWorkout'
 
-export const publicRoutes = [
-	{
-		path: '/',
-		component: Home
-	}
-]
-
-export const privateRoutes = [
+export const routes = [
 	{
 		path: '/',
 		component: Home

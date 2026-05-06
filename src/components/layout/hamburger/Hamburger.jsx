@@ -23,7 +23,10 @@ const Hamburger = () => {
 					<HiOutlineMenuAlt3 className={styles.menuButtonIcon} />
 				)}
 			</button>
-			<Menu isShow={isShow} />
+			<Menu
+				isShow={isShow}
+				setIsShow={setIsShow}
+			/>
 		</div>
 	)
 }

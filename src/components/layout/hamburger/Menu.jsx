@@ -5,8 +5,14 @@ import cn from 'clsx'
 import Cookies from 'js-cookie'
 import { Link } from 'react-router-dom'
 
-const Menu = ({ isShow }) => {
+const Menu = ({ isShow, setIsShow }) => {
 	const { setIsAuth } = useAuth()
+
+	const logoutHandler = () => {
+		Cookies.remove('notif')
+		setIsAuth(false)
+		setIsShow(false)
+	}
 
 	return (
 		isShow && (
@@ -20,8 +26,7 @@ const Menu = ({ isShow }) => {
 					<li>
 						<button
 							onClick={() => {
-								Cookies.remove('notif')
-								setIsAuth(false)
+								logoutHandler()
 							}}
 						>
 							Logout
