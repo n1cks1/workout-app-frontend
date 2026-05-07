@@ -7,6 +7,16 @@ export const $axios = axios.create({
 	baseURL: API_URL,
 	headers: {
 		'Content-Type': 'application/json',
-		Authorization: Cookies.get('token') ? `Bearer ${Cookies.get('token')}` : ''
+		Authorization: Cookies.get('notif') ? `Bearer ${Cookies.get('notif')}` : ''
 	}
+})
+
+$axios.interceptors.request.use(config => {
+	const token = Cookies.get('notif')
+
+	if (token) {
+		config.headers.Authorization = `Bearer ${token}`
+	}
+
+	return config
 })

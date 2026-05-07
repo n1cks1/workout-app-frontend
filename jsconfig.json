@@ -7,7 +7,7 @@
 			"@styles/*": ["src/assets/styles/*"],
 			"@hooks/*": ["src/hooks/*"],
 			"@routes/*": ["src/routes/*"],
-			"@services/*": ["src/services/*"]
+			"@service/*": ["src/service/*"]
 		}
 	},
 	"include": ["src"],

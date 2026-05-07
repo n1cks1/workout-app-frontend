@@ -1,9 +1,12 @@
+import { useProfile } from '@components/pages/profile/useProfile'
 import styles from './Counters.module.scss'
 
-const Counters = ({ items }) => {
+const Counters = () => {
+	const { data } = useProfile()
+
 	return (
 		<div className={styles.wrapper}>
-			{items.map((item, idx) => (
+			{data?.statistics?.map((item, idx) => (
 				<div
 					key={idx}
 					className={styles.counter}

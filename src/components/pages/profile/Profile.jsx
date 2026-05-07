@@ -1,15 +1,18 @@
 import Layout from '@components/layout/Layout'
-import { counters } from '@components/pages/home/counters.data'
 import Counters from '@components/ui/counters/Counters'
 import styles from './Profile.module.scss'
+import { useProfile } from './useProfile'
+
 const Profile = () => {
+	const { data } = useProfile()
+
 	return (
 		<>
 			<Layout
-				heading="Nikita" //скорее всего нужен user в контексте
+				heading={data?.name} //скорее всего нужен user в контексте
 				bgImage="/images/profile-bg.jpg"
 			>
-				<Counters items={counters} />
+				<Counters />
 			</Layout>
 
 			<div className={`wrapper-inner-page ${styles.wrapper}`}>
