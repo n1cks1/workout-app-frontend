@@ -5,7 +5,6 @@ import { useProfile } from './useProfile'
 
 const Profile = () => {
 	const { data } = useProfile()
-
 	return (
 		<>
 			<Layout

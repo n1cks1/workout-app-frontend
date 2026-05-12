@@ -1,7 +1,7 @@
 import { $axios } from '../api'
 
 class UserService {
-	async getProfile() {
+	getProfile() {
 		return $axios.get('/users/profile')
 	}
 }
