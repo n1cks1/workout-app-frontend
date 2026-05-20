@@ -4,7 +4,7 @@ import { FaArrowLeft, FaUser } from 'react-icons/fa6'
 import { useLocation, useNavigate } from 'react-router-dom'
 import Hamburger from '../hamburger/Hamburger'
 
-const Header = ({ backLink = '' }) => {
+const Header = () => {
 	const { pathname } = useLocation()
 	const navigate = useNavigate()
 	const { isAuth } = useAuth()
@@ -14,7 +14,7 @@ const Header = ({ backLink = '' }) => {
 			{pathname !== '/' ? (
 				<button
 					onClick={() => {
-						navigate(backLink)
+						navigate(-1)
 					}}
 				>
 					<FaArrowLeft

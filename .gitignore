@@ -11,7 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
-
+.gitignore
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -53,3 +53,6 @@ coverage/
 .eslintcache
 .vite/
 *.tsbuildinfo
+
+
+//потом убрать 

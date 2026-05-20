@@ -7,6 +7,10 @@ class WorkoutService {
 		return $axios.get(WORKOUT)
 	}
 
+	getSingle(id) {
+		return $axios.get(`${WORKOUT}/${id}`)
+	}
+
 	create(body) {
 		const { data } = $axios.post(WORKOUT, body)
 
