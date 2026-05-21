@@ -3,8 +3,10 @@ import { $axios } from '../../api'
 const WORKOUT = '/workout'
 
 class WorkoutService {
-	getAll() {
-		return $axios.get(WORKOUT)
+	async getAll() {
+		const res = await $axios.get(WORKOUT)
+
+		return res.data
 	}
 
 	getSingle(id) {

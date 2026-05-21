@@ -1,8 +1,15 @@
 import Header from '@components/layout/header/Header'
 import styles from '@components/layout/Layout.module.scss'
 import cn from 'clsx'
+import * as React from 'react'
 
-const Layout = ({ children, bgImage, heading = '', backLink = '/' }) => {
+type Layout = {
+	children?: React.ReactNode
+	bgImage: string
+	heading?: String
+}
+
+const Layout = ({ children, bgImage, heading = '' }: Layout) => {
 	return (
 		<section
 			className={cn(styles.wrapper, {
@@ -10,7 +17,7 @@ const Layout = ({ children, bgImage, heading = '', backLink = '/' }) => {
 			})}
 			style={{ backgroundImage: `url(${bgImage})` }}
 		>
-			<Header backLink={backLink} />
+			<Header />
 
 			{heading && <h1 className={styles.heading}>{heading}</h1>}
 
