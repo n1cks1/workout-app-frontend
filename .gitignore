@@ -55,4 +55,6 @@ coverage/
 *.tsbuildinfo
 
 
-//потом убрать 
+# потом убрать
+
+src/components/pages/workout/list-workouts/*

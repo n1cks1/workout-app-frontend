@@ -1,38 +1,52 @@
 import Layout from "@components/layout/Layout";
 import Loader from "@components/ui/Loader";
-import styles from "./Workout.module.scss";
-import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
-import WorkoutService from "@service/workout/WorkoutService";
+import ExerciseItem from "./ExerciseItem";
+import { Fragment } from "react";
+import { getWorkoutLog } from "./useSingleWorkout";
+import styles from "./Workout.module.scss";
 
 const Workout = () => {
-  const workoutId = useParams().id;
-  console.log(workoutId);
-  const { data, isPending, error } = useQuery({
-    queryKey: ["get workout"],
-    queryFn: () => WorkoutService.getSingle(workoutId).then((res) => res.data),
-  });
-  console.log(data);
+  const { id } = useParams(); //wokrout-log-id
+
+  const isTrue = true;
+  const { data, isPending, isError, error } = getWorkoutLog(id);
+
+  if (isPending) {
+    return (
+      <>
+        <Layout bgImage="/images/workout-bg.jpg" heading={<Loader />} />
+        <div className="wrapper-inner-page">
+          <Loader />
+        </div>
+      </>
+    );
+  }
+
+  if (isError) {
+    return (
+      <>
+        <Layout bgImage="/images/workout-bg.jpg" heading="Упс.." />
+        <div className="wrapper-inner-page">
+          Что-то пошло не так, попробуйте перезагрузить страницу
+        </div>
+      </>
+    );
+  }
+
   return (
     <>
-      <Layout
-        bgImage="/images/workout-bg.jpg"
-        heading={isPending ? <Loader /> : data.name} //workout name
-      />
-
+      <Layout bgImage="/images/workout-bg.jpg" heading={data?.workout?.name} />
       <div className="wrapper-inner-page">
-        {isPending ? (
-          <Loader />
-        ) : (
-          data?.exercises?.map((item, idx) => (
-            <div key={`id_${idx}`} className={styles.exercise}>
-              <p>{item.name}</p>
-              <img
-                src={`${import.meta.env.VITE_SERVER_URL}/${item.iconPath}`}
-              />
-            </div>
-          ))
-        )}
+        <div className={styles.wrapper}>
+          {data?.exerciseLogs?.map((exerciseLog) => (
+            <ExerciseItem
+              key={exerciseLog.id}
+              exerciseLog={exerciseLog}
+              isPending={isPending}
+            />
+          ))}
+        </div>
       </div>
     </>
   );
