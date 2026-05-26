@@ -13,19 +13,20 @@ export default defineConfig({
 	plugins: [react()],
 	resolve: {
 		alias: {
-			'@styles': fromSrc('assets/styles'),
-			'@components': fromSrc('components'),
-			'@hooks': fromSrc('hooks'),
-			'@routes': fromSrc('routes'),
-			'@service': fromSrc('service')
+			'@shared': fromSrc('shared'),
+			'@pages': fromSrc('pages'),
+			'@features': fromSrc('features'),
+			'@entities': fromSrc('entities'),
+			'@app': fromSrc('app'),
+			'@widgets': fromSrc('widgets')
 		}
 	},
 	css: {
 		preprocessorOptions: {
 			scss: {
 				additionalData: `
-          @use "@styles/_variables" as *;
-          @use "@styles/_animations" as *;
+					@use "@shared/styles/variables.scss" as *;
+					@use "@shared/styles/animations.scss" as *;
         `
 			}
 		}

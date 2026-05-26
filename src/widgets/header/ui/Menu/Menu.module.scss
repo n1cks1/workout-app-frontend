@@ -1,0 +1,39 @@
+.menu {
+	position: absolute;
+	top: calc(100% + 8px);
+	right: 0;
+	background-color: #fff;
+	padding: 10px 12px;
+	box-shadow: $bx-16;
+	border-radius: 10px 0 10px 10px;
+	min-width: 116px;
+	display: none;
+	animation: opacity 0.4s ease-in-out;
+
+	&.show {
+		display: block;
+	}
+
+	> ul {
+		list-style: none;
+
+		li {
+			> button {
+				font-size: 17px;
+			}
+		}
+	}
+
+	a {
+		font-size: 16px;
+		color: #000;
+		text-decoration: none;
+		transition: color 0.2s ease;
+
+		&:hover,
+		&.active {
+			color: $accent;
+			margin: 4px 0;
+		}
+	}
+}

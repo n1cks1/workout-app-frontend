@@ -27,7 +27,13 @@
 			"@styles/*": ["src/assets/styles/*"],
 			"@hooks/*": ["src/hooks/*"],
 			"@routes/*": ["src/routes/*"],
-			"@service/*": ["src/service/*"]
+			"@service/*": ["src/service/*"],
+			"@shared/*": ["src/shared/*"],
+			"@pages/*": ["src/pages/*"],
+			"@features/*": ["src/features/*"],
+			"@entities/*": ["src/entities/*"],
+			"@app/*": ["src/app/*"],
+			"@widgets/*": ["src/widgets/*"]
 		}
 	},
 	"include": ["src"],
