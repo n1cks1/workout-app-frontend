@@ -5,6 +5,7 @@ import { Profile } from '@pages/profile'
 // import SingleExercise from '@pages/single-exercise/SingleExercise'
 import { ListWorkouts } from '@pages/list-workouts/ListWorkouts'
 import { Workout } from '@pages/workout'
+import {WorkoutLogs} from "@pages/workout-logs/WorkoutLogs";
 
 export const routes = [
 	{
@@ -34,6 +35,10 @@ export const routes = [
 		path: '/workouts',
 
 		component: ListWorkouts
+	},
+	{
+		path: '/workouts/:name',
+		component: WorkoutLogs
 	}
 	// {
 	// 	path: '/exercise/:id',
