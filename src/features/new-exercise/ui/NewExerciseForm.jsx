@@ -19,13 +19,8 @@ export const NewExerciseForm = () => {
 
 	return (
 		<div>
-			{isSuccess && <Alert text={'Exercise created'} />}
-			{error && (
-				<Alert
-					type={error}
-					text={error}
-				/>
-			)}
+			{isSuccess && <Alert>Exercise created</Alert>}
+			{error && <Alert type="error">{error}</Alert>}
 			{isPending && <Loader />}
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<Field
