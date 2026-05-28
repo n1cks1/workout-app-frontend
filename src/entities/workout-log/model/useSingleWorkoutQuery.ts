@@ -1,9 +1,9 @@
 import { workoutLogService } from '@entities/workout-log'
 import { useQuery } from '@tanstack/react-query'
 
-export const useSingleWorkoutQuery = id =>
+export const useSingleWorkoutLogQuery = (id: number) =>
 	useQuery({
-		queryKey: ['get workout log'],
+		queryKey: ['workoutLog', id],
 		queryFn: () => workoutLogService.getSingle(id),
 		select: ({ data }) => data
 	})

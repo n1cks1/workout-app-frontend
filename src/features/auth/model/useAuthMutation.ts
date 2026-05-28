@@ -2,9 +2,9 @@ import { useAuth } from '@app/providers/auth-provider'
 import AuthService from '@features/auth/api/AuthService'
 import { useMutation } from '@tanstack/react-query'
 import { useNavigate } from 'react-router-dom'
-import type { LoginForm } from './types'
+import type {AuthType, LoginForm} from './types'
 
-export const useAuthMutation = (type, reset) => {
+export const useAuthMutation = (type: AuthType, reset) => {
 	const { setIsAuth } = useAuth()
 	const nav = useNavigate()
 

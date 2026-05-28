@@ -37,7 +37,7 @@ export const routes = [
 		component: ListWorkouts
 	},
 	{
-		path: '/workouts/:name',
+		path: '/workouts/:name/:workoutId',
 		component: WorkoutLogs
 	}
 	// {

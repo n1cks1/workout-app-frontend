@@ -1,1 +1,1 @@
-export const getIconPath = name => `exercises/${name}.svg`
+export const getIconPath = (name: string) => `exercises/${name}.svg`

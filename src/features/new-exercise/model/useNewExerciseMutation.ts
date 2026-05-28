@@ -3,7 +3,7 @@ import { useMutation } from '@tanstack/react-query'
 
 export const useNewExerciseMutation = reset => {
 	const { mutate, isSuccess, error, isPending } = useMutation({
-		mutationKey: ['create exercise'],
+		mutationKey: ['exercise' ],
 		mutationFn: body => exerciseService.create(body),
 		onSuccess: () => {
 			reset()

@@ -13,7 +13,7 @@ export const WorkoutItem = ({ data }) => {
 					<button
 						key={`key_${workout.id}`}
 						onClick={() => {
-							nav(`/workouts/${createWorkoutSlug(workout.name)}`)
+							nav(`/workouts/${createWorkoutSlug(workout.name)}/${workout.id}`)
 						}}
 						className={styles.workout}
 					>
