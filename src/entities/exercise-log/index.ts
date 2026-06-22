@@ -1,2 +1,2 @@
 export { exerciseLogService } from './api/exercise-log.service'
-export type { ExerciseLog } from './types'
+export type { TBodyUpdateTime, TExerciseLog, TExerciseTime } from './types'

@@ -1,4 +1,4 @@
-import {ExerciseLog} from "@entities/exercise-log";
+import {TExerciseLog} from "@entities/exercise-log";
 
 export type WorkoutLog = {
     id: number,
@@ -6,7 +6,7 @@ export type WorkoutLog = {
 
     updatedAt: string,
     isCompleted: boolean,
-    exerciseLogs: ExerciseLog[]
+    exerciseLogs: TExerciseLog[]
 
     userId: number,
 

@@ -1,0 +1,1 @@
+export { useDeleteWorkoutMutation } from './model/useDeleteWorkoutMutation'

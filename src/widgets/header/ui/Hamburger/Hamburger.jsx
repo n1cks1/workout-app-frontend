@@ -1,7 +1,8 @@
 import { useOnclickOutside } from '@shared/lib/useOnClickOutside'
+import { Menu, menu } from '@widgets/Menu'
 import { HiOutlineMenuAlt3 } from 'react-icons/hi'
 import { MdClose } from 'react-icons/md'
-import { Menu } from '../Menu/Menu'
+
 import styles from './Hamburger.module.scss'
 
 export const Hamburger = () => {
@@ -26,6 +27,8 @@ export const Hamburger = () => {
 			<Menu
 				isShow={isShow}
 				setIsShow={setIsShow}
+				menu={menu}
+				menuType={'profile'}
 			/>
 		</div>
 	)

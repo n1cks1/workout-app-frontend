@@ -16,11 +16,11 @@ export const useNewWorkoutForm = () => {
 	const { mutate, isPending, error, isSuccess } = useNewWorkoutMutation(reset)
 
 	const onSubmit = useCallback(
-		data =>
+		data => {
 			mutate({
 				name: data.name,
 				exerciseIds: data.exerciseIds.map(ex => ex.value)
-			}),
+			})},
 		[mutate]
 	)
 

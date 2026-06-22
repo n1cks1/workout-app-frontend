@@ -10,6 +10,7 @@ const fromSrc = (p = '') => path.resolve(__dirname, './src', p)
 
 // https://vite.dev/config/
 export default defineConfig({
+
 	plugins: [react()],
 	resolve: {
 		alias: {
@@ -32,17 +33,21 @@ export default defineConfig({
 		}
 	}
 
-	//for testing on mobile with hotspot, change api.js -> url_api = '/api'
+	// // //for testing on mobile with hotspot, change api.js -> url_api = '/api'
 
-	// server: {
-	// 	host: '0.0.0.0',
-	// 	proxy: {
-	// 		'/api': {
-	// 			target: 'http://172.20.10.9:3000/',
-	// 			changeOrigin: true
-	// 		}
-	// 	}
-	// }
+// 	server:{
+// 		host: true,
+// 		port: 5173,
+// 		allowedHosts: [
+// 			"yofjnr-138-124-108-194.ru.tuna.am"
+// 		],
+// 		proxy: {
+// 			'/api': {
+// 				target: 'http://192.168.0.21:3000/',
+// 				changeOrigin: true
+// 			}
+// 		}
+// 	},
 })
 
 // CSS без импортов + пример настройки алиасов

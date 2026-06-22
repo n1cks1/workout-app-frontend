@@ -1,1 +1,1 @@
-export { NewWorkoutForm } from './ui/NewWorkoutForm'
+export { useNewWorkoutForm } from "./model/useNewWorkoutForm";

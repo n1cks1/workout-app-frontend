@@ -32,3 +32,17 @@ $accent-04: rgba($accent, 0.4);
 .wrapper {
 	text-align: center;
 }
+
+@mixin timeButton {
+	font-size: 16px;
+	padding: 10px 20px;
+}
+
+.small {
+	@include timeButton;
+}
+
+.confirm {
+	@include timeButton;
+	background-color: $accent-04;
+}

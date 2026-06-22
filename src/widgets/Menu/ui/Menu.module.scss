@@ -1,0 +1,68 @@
+@use 'sass:color';
+
+.menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background-color: #fff;
+  padding: 10px 12px;
+  box-shadow: $bx-16;
+  border-radius: 10px 0 10px 10px;
+  min-width: 116px;
+  display: none;
+  animation: opacity 0.4s ease-in-out;
+  z-index: 10;
+
+  &.show {
+    display: block;
+  }
+
+  &.default {
+    min-width: 150px;
+    min-height: 70px;
+    top: 50px;
+    left: auto;
+    right: 40px;
+    background-color: #dcd9cd;
+    padding: 5px 10px;
+
+    >ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      button {
+        color: #dcd9cd;
+        height: 30px;
+        border-radius: 5px;
+        cursor: pointer;
+        border: none;
+        background-color: color.adjust($accent, $lightness: -20%);
+      }
+
+    }
+  }
+
+  >ul {
+    list-style: none;
+
+    li {
+      >button {
+        font-size: 17px;
+      }
+    }
+  }
+
+  a {
+    font-size: 16px;
+    color: #000;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover,
+    &.active {
+      color: $accent;
+      margin: 4px 0;
+    }
+  }
+}

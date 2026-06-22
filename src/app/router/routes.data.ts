@@ -3,9 +3,10 @@ import { NewExercise } from '@pages/new-exercise'
 import { NewWorkout } from '@pages/new-workout'
 import { Profile } from '@pages/profile'
 // import SingleExercise from '@pages/single-exercise/SingleExercise'
+import { Exercise } from '@pages/exercise-logs/Exercise'
 import { ListWorkouts } from '@pages/list-workouts/ListWorkouts'
 import { Workout } from '@pages/workout'
-import {WorkoutLogs} from "@pages/workout-logs/WorkoutLogs";
+import { WorkoutLogs } from '@pages/workout-logs/WorkoutLogs'
 
 export const routes = [
 	{
@@ -39,10 +40,10 @@ export const routes = [
 	{
 		path: '/workouts/:name/:workoutId',
 		component: WorkoutLogs
-	}
-	// {
-	// 	path: '/exercise/:id',
+	},
+	{
+		path: '/exercise/:id',
 
-	// 	component: SingleExercise
-	// }
+		component: Exercise
+	}
 ]

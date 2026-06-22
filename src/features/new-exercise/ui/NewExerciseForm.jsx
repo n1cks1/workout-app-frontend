@@ -22,7 +22,7 @@ export const NewExerciseForm = () => {
 			{isSuccess && <Alert>Exercise created</Alert>}
 			{error && <Alert type="error">{error}</Alert>}
 			{isPending && <Loader />}
-			<form onSubmit={handleSubmit(onSubmit)}>
+			<form id='exercise-form' onSubmit={handleSubmit(onSubmit)}>
 				<Field
 					placeholder="Enter name"
 					name="name"
@@ -48,7 +48,6 @@ export const NewExerciseForm = () => {
 				/>
 
 				<ExerciseIconSelect control={control} />
-				<Button handleSubmit={null}>Create</Button>
 			</form>
 		</div>
 	)

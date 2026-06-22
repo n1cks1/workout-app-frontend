@@ -1,5 +1,5 @@
 import { Workout } from '@entities/workout'
-import { workoutLogService } from '@entities/workout-log'
+import { WorkoutLog, workoutLogService } from '@entities/workout-log'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 
 type MutationProps = {
@@ -11,9 +11,15 @@ type MutationProps = {
 export const useUpdateWorkoutLogMutation = () => {
 	const queryClient = useQueryClient()
 
-	const { mutate, isPending } = useMutation({
+	const { data, mutate, isPending } = useMutation<
+		WorkoutLog,
+		Error,
+		MutationProps,
+		{ previous: Workout | undefined }
+	>({
 		mutationFn: ({ workoutLogId, statusCompleted }: MutationProps) =>
 			workoutLogService.complete(workoutLogId, statusCompleted),
+
 		onMutate: async ({ workoutId, workoutLogId }: MutationProps) => {
 			await queryClient.cancelQueries({
 				queryKey: ['workout', workoutId]
@@ -40,5 +46,5 @@ export const useUpdateWorkoutLogMutation = () => {
 		}
 	})
 
-	return { mutate, isPending }
+	return { mutate, isPending, data }
 }

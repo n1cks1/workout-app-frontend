@@ -1,26 +1,54 @@
-import { useNavigate } from 'react-router-dom'
-import styles from '../styles.module.scss'
-import {createWorkoutSlug} from "@shared/lib/slug";
+import { Workout } from "@entities/workout";
+import { createWorkoutSlug } from "@shared/lib/slug";
+import { Menu } from "@widgets/Menu";
+import { CiMenuKebab } from "react-icons/ci";
+import { useNavigate } from "react-router-dom";
+import styles from "../styles.module.scss";
+import { menu } from "./menu.data";
+import { MdClose } from "react-icons/md";
+import { useOnclickOutside } from "@shared/lib/useOnClickOutside";
 
-export const WorkoutItem = ({ data }) => {
-	const nav = useNavigate()
+type Props = {
+  workout: Workout;
+};
 
+export const WorkoutItem = ({ workout }: Props) => {
+  const { isShow, ref, setIsShow } = useOnclickOutside(false);
 
-	return (
-		<div className="wrapper-inner-page">
-			<div className={styles.wrapper}>
-				{data?.map(workout => (
-					<button
-						key={`key_${workout.id}`}
-						onClick={() => {
-							nav(`/workouts/${createWorkoutSlug(workout.name)}/${workout.id}`)
-						}}
-						className={styles.workout}
-					>
-						{workout.name}
-					</button>
-				))}
-			</div>
-		</div>
-	)
-}
+  const nav = useNavigate();
+  return (
+    <div className={styles.wrapper} ref={ref}>
+      <div
+        onClick={() => {
+          nav(`/workouts/${createWorkoutSlug(workout.name)}/${workout.id}`);
+        }}
+        className={styles.workout}
+      >
+        {workout.name}
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            setIsShow(!isShow);
+          }}
+          className={styles.menu}
+        >
+          {isShow ? <MdClose /> : <CiMenuKebab />}
+        </button>
+        {isShow && (
+          <div
+            className={styles.overlay}
+            onClick={(e) => {
+              e.stopPropagation();
+              setIsShow(false);
+            }}
+          ></div>
+        )}
+        <Menu
+          isShow={isShow}
+          menuType={"default"}
+          menu={menu({ setIsShow, workoutId: workout.id })}
+        />
+      </div>
+    </div>
+  );
+};

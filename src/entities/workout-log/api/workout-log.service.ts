@@ -1,6 +1,6 @@
+import { WorkoutLog } from '@entities/workout-log'
 import { $axios } from '@shared/api'
 import { WORKOUT } from '../../workoutPath'
-import {WorkoutLog} from "@entities/workout-log";
 
 const LOG = '/log'
 
@@ -12,15 +12,19 @@ class WorkoutLogService {
 
 	//workout_id
 	async create(id: number): Promise<WorkoutLog> {
-		const res = await $axios.post<WorkoutLog>(`${WORKOUT}${LOG}/${id}`);
-		return res.data;
-
+		const res = await $axios.post<WorkoutLog>(`${WORKOUT}${LOG}/${id}`)
+		return res.data
 	}
 
 	//workout-log_id
-	complete(id: number, statusCompleted: boolean) {
-		console.log( { statusCompleted: statusCompleted } );
-		return $axios.patch(`${WORKOUT}${LOG}/complete/${id}`, { statusCompleted: statusCompleted })
+	async complete(id: number, statusCompleted: boolean): Promise<WorkoutLog> {
+		const res = await $axios.patch<WorkoutLog>(
+			`${WORKOUT}${LOG}/complete/${id}`,
+			{
+				statusCompleted: statusCompleted
+			}
+		)
+		return res.data
 	}
 }
 

@@ -1,47 +1,55 @@
-@use "sass:color";
+@use 'sass:color';
 
 .wrapper {
-  background-color: color.adjust($accent, $lightness: -30%);
-  border-radius: 15px;
-  padding: 10px;
-  aspect-ratio: 1 / 1;
+	background-color: color.adjust($accent, $lightness: -30%);
+	border-radius: 15px;
+	padding: 10px;
+	aspect-ratio: 1 / 1;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 
-  overflow: hidden;
+	overflow: hidden;
 
-  .status {
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
-  }
+	.status {
+		display: flex;
+		align-items: stretch;
+		justify-content: center;
+	}
 
-  .status p {
-    background-color: $accent;
-    padding: 5px 10px;
-    border-radius: 50px 0 0 50px;
-    margin: 0;
-    display: flex;
-    align-items: center;
-  }
+	.status p {
+		background-color: $accent;
+		padding: 5px 10px;
+		border-radius: 50px 0 0 50px;
+		margin: 0;
+		display: flex;
+		align-items: center;
+	}
 
-  .blockIconChange {
-    background-color: color.adjust($accent, $lightness: -10%);
+	.blockIconChange {
+		background-color: color.adjust($accent, $lightness: -10%);
 
-    padding: 0 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+		padding: 0 12px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 
-    border-radius: 0 50% 50% 0;
-    border: none;
-    cursor: pointer;
-    color: white;
-  }
+		border-radius: 0 50% 50% 0;
+		border: none;
+		cursor: pointer;
+		color: white;
+	}
 
-  .iconChange {
-    font-size: 18px;
-  }
+	.iconChange {
+		font-size: 18px;
+	}
+	p {
+		font-size: 14px;
+
+		span {
+			font-size: 20px;
+			color: $accent;
+		}
+	}
 }

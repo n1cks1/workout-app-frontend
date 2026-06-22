@@ -7,22 +7,22 @@ import type {
 } from 'react-hook-form'
 import styles from './Field.module.scss'
 
-type Props<T extends FieldValues> = {
+type Props<T extends FieldValues, TName extends Path<T>> = {
 	register: UseFormRegister<T>
-	name: Path<T>
+	name: TName
 	error?: string
-	options?: RegisterOptions<T>
+	options?: RegisterOptions<T, TName>
 } & InputHTMLAttributes<HTMLInputElement>
 
-export const Field = <T extends FieldValues>({
+export const Field = <T extends FieldValues, TName extends Path<T>>({
 	register,
 	name,
 	error,
 	options,
 	...rest
-}: Props<T>) => {
+}: Props<T, TName>) => {
 	return (
-		<div style={{ marginBottom: '1rem' }}>
+		<div>
 			<input
 				{...register(name, options)}
 				{...rest}

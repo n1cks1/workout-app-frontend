@@ -1,0 +1,33 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+
+  z-index: 9;
+  /* затемнение */
+  background: rgba(0, 0, 0, 0.3);
+
+  /* размытие того, что находится за оверлеем */
+  backdrop-filter: blur(5px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  position: absolute;
+  z-index: 10;
+  background-color: $black;
+  width: $mobile;
+  left: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.buttons {
+  width: calc(100% - 20px);
+  display: flex;
+  gap: 10px;
+}

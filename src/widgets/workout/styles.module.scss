@@ -1,27 +1,54 @@
 @use 'sass:color';
 
 .wrapper {
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
+
 .exercise,
 .workout {
-	height: 60px;
-	gap: 10px;
-	font-size: 15px;
-	cursor: pointer;
-	color: white;
-	border: none;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 8px 12px;
-	border-radius: 16px;
-	background-color: color.adjust($accent, $lightness: -20%);
+  height: 60px;
+  gap: 10px;
+  font-size: 15px;
 
-	img {
-		width: 40px;
-		height: 40px;
-	}
+  color: white;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 16px;
+  background-color: color.adjust($accent, $lightness: -20%);
+  position: relative;
+
+  img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .menu {
+    width: 50px;
+    height: 100%;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: white;
+    font-size: 25px;
+    transition: background-color 0.2s ease-out;
+
+    &:active {
+      background-color: $accent;
+    }
+  }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9;
 }

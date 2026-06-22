@@ -1,28 +1,34 @@
-import {Exercise} from "@entities/exercise";
+import { Exercise } from '@entities/exercise'
 
-export type ExerciseLog = {
-    id: number,
-    createdAt: string,
-    updatedAt: string,
+export type TExerciseLog = {
+	id: number
+	createdAt: string
+	updatedAt: string
 
-    isCompleted: boolean,
-    times: ExerciseTime[],
-    userId: number,
-    exercise: Exercise[]
+	isCompleted: boolean
+	times: TExerciseTime[]
+	userId: number
+	exercise: Exercise[]
 
-    workoutLogId: number
+	workoutLogId: number
 }
 
-type ExerciseTime = {
-    id: number,
-    createdAt: string,
-    updatedAt: string,
+export type TExerciseTime = {
+	id: number
+	createdAt: string
+	updatedAt: string
 
-    weight: number,
-    repeat: number,
-    isCompleted: boolean,
+	weight: number
+	repeat: number
+	isCompleted: boolean
 
-    exerciseLogId: number
+	exerciseLogId: number | null
+}
+
+export type TBodyUpdateTime = {
+	weight: number
+	repeat: number
+	isCompleted: boolean
 }
 
 // model ExerciseLog {
@@ -31,7 +37,7 @@ type ExerciseTime = {
 //     updatedAt DateTime @updatedAt @map("updated_at")
 //
 //     isCompleted Boolean        @default(false) @map("is_completed")
-//     times       ExerciseTime[]
+//     times       exercise-time[]
 //     user        User?          @relation(fields: [userId], references: [id])
 //
 //     userId       Int?        @map("user_id")
@@ -42,7 +48,7 @@ type ExerciseTime = {
 //     @@map("exercise_log")
 // }
 
-// model ExerciseTime {
+// model exercise-time {
 //     id        Int      @id @default(autoincrement())
 //     createdAt DateTime @default(now()) @map("created_at")
 //     updatedAt DateTime @updatedAt @map("updated_at")
